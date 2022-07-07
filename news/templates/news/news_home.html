@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}Bereza news{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Test page</h1>
+    {% if news %}
+    {% for item in news%}
+    <div class="alert alert-warning">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.anons }}</p>
+        <a href="{% url 'news-detail' item.id %}" class="btn btn-warning">Детальнее</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>У вас нет записей!</p>
+    {% endif %}
+<!--    {{ news }}-->
+</div>
+{% endblock %}
